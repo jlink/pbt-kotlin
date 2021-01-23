@@ -36,7 +36,7 @@ tasks.withType<KotlinCompile> {
 			"-Xemit-jvm-type-annotations" // Required for annotations on type variables
 		)
         jvmTarget = "11"
-        javaParameters = true
+        javaParameters = true // Required to get correct parameter names in reporting
     }
 }
 

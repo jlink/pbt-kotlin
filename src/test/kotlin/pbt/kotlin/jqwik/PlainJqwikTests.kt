@@ -1,4 +1,4 @@
-package pbt.kotilin.jqwik
+package pbt.kotlin.jqwik
 
 import net.jqwik.api.ForAll
 import net.jqwik.api.Property
