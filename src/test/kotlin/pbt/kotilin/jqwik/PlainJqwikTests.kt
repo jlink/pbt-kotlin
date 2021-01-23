@@ -5,6 +5,7 @@ import net.jqwik.api.Property
 import net.jqwik.api.constraints.AlphaChars
 import net.jqwik.api.constraints.NumericChars
 import net.jqwik.api.constraints.Size
+import java.math.BigDecimal
 
 class PlainJqwikTests {
 
@@ -20,6 +21,10 @@ class PlainJqwikTests {
 
     @Property(tries = 30)
     fun test(@ForAll list: @Size(5) List<@NumericChars String>) {
-        println(list)
+        //println(list)
+    }
+
+    @Property
+    fun `property with a long name`(@ForAll aNumber: BigDecimal) {
     }
 }
