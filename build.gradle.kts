@@ -7,7 +7,7 @@ buildscript {
 }
 
 plugins {
-    kotlin("jvm") version "1.4.21"
+    kotlin("jvm") version "1.4.30"
 }
 
 group = "pbt.kotlin"
@@ -20,7 +20,7 @@ repositories {
 
 dependencies {
 
-    testImplementation("net.jqwik:jqwik:1.4.0-SNAPSHOT")
+    testImplementation("net.jqwik:jqwik:1.5.0")
     testImplementation("org.assertj:assertj-core:3.18.1")
 
 }
