@@ -1,2 +1,3 @@
-# pbt-kotlin
-Property-based Testing in Kotlin
+# Property-based Testing in Kotlin
+
+The current examples use [jqwik](https://jqwik.net).
