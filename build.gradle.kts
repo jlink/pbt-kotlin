@@ -7,7 +7,7 @@ buildscript {
 }
 
 plugins {
-    kotlin("jvm") version "1.5.21"
+    kotlin("jvm") version "1.5.30"
 }
 
 group = "pbt.kotlin"
@@ -19,10 +19,8 @@ repositories {
 }
 
 dependencies {
-
-    testImplementation("net.jqwik:jqwik:1.5.3")
+    testImplementation("net.jqwik:jqwik-kotlin:1.6.0-SNAPSHOT")
     testImplementation("org.assertj:assertj-core:3.18.1")
-
 }
 
 tasks.withType<Test> {
@@ -41,5 +39,5 @@ tasks.withType<KotlinCompile> {
 }
 
 tasks.withType<Wrapper> {
-    gradleVersion = "7.1.1"
+    gradleVersion = "7.2"
 }
