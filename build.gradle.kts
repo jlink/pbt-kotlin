@@ -7,7 +7,7 @@ buildscript {
 }
 
 plugins {
-    kotlin("jvm") version "1.5.30"
+    kotlin("jvm") version "1.5.31"
 }
 
 group = "pbt.kotlin"
@@ -30,10 +30,10 @@ tasks.withType<Test> {
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf(
-			"-Xjsr305=strict",
+			"-Xjsr305=strict", // Required for strict interpretation of
 			"-Xemit-jvm-type-annotations" // Required for annotations on type variables
 		)
-        jvmTarget = "11"
+        jvmTarget = "11" // 1.8 or above
         javaParameters = true // Required to get correct parameter names in reporting
     }
 }
