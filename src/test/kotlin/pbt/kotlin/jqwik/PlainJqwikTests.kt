@@ -5,6 +5,7 @@ import net.jqwik.api.Property
 import net.jqwik.api.constraints.AlphaChars
 import net.jqwik.api.constraints.NumericChars
 import net.jqwik.api.constraints.Size
+import net.jqwik.api.constraints.WithNull
 import java.math.BigDecimal
 
 class PlainJqwikTests {
@@ -20,7 +21,17 @@ class PlainJqwikTests {
     }
 
     @Property(tries = 30)
-    fun test(@ForAll list: @Size(5) List<@NumericChars String>) {
+    fun propertyWithAnnotatedParameterTypes(@ForAll list: @Size(5) List<@NumericChars String>) {
+        //println(list)
+    }
+
+    @Property(tries = 30)
+    fun propertyWithNullableParameter(@ForAll nullOrString: String?) {
+        //println(nullOrString)
+    }
+
+    @Property(tries = 30)
+    fun propertyWithNullableParameterType(@ForAll list: List<@WithNull(0.5) Int>) {
         //println(list)
     }
 
