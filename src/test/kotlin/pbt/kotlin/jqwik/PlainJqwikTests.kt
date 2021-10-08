@@ -3,10 +3,7 @@ package pbt.kotlin.jqwik
 import net.jqwik.api.ForAll
 import net.jqwik.api.Property
 import net.jqwik.api.PropertyDefaults
-import net.jqwik.api.constraints.AlphaChars
-import net.jqwik.api.constraints.NumericChars
-import net.jqwik.api.constraints.Size
-import net.jqwik.api.constraints.WithNull
+import net.jqwik.api.constraints.*
 import java.math.BigDecimal
 
 @PropertyDefaults(tries = 10)
@@ -23,7 +20,7 @@ class PlainJqwikTests {
     }
 
     @Property(tries = 30)
-    fun propertyWithAnnotatedParameterTypes(@ForAll @Size(5) list: List<@NumericChars String>) {
+    fun propertyWithAnnotatedParameterTypes(@ForAll list: @Size(5) List<@StringLength(3) @NumericChars String>) {
         //println(list)
     }
 
