@@ -1,40 +1,38 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-}
-
 plugins {
     kotlin("jvm") version "1.5.31"
 }
 
-group = "pbt.kotlin"
-version = "0.0.0-SNAPSHOT"
-
 repositories {
     mavenCentral()
+    // Only necessary if you use jqwik's SNAPSHOT releases
     maven(url = "https://oss.sonatype.org/content/repositories/snapshots")
 }
 
 dependencies {
     testImplementation("net.jqwik:jqwik-kotlin:1.6.0-SNAPSHOT")
-    testImplementation("org.assertj:assertj-core:3.18.1")
+    testImplementation("org.assertj:assertj-core:3.21.0")
 }
 
 tasks.withType<Test> {
     useJUnitPlatform()
+
+    // To allow other naming conventions
+    include("**/*Properties.class")
+    include("**/*Examples.class")
+    include("**/*Test.class")
+    include("**/*Tests.class")
 }
 
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf(
-			"-Xjsr305=strict", // Required for strict interpretation of
-			"-Xemit-jvm-type-annotations" // Required for annotations on type variables
-		)
+            "-Xjsr305=strict", // Strict interpretation of nullability annotations in jqwik API
+            "-Xemit-jvm-type-annotations" // Enable nnotations on type variables
+        )
         jvmTarget = "11" // 1.8 or above
-        javaParameters = true // Required to get correct parameter names in reporting
+        javaParameters = true // Get correct parameter names in jqwik reporting
     }
 }
 
