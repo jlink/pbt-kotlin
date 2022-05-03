@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.5.31"
+    kotlin("jvm") version "1.6.20"
 }
 
 repositories {
@@ -13,8 +13,8 @@ repositories {
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib")
 
-    testImplementation("net.jqwik:jqwik-kotlin:1.6.0-SNAPSHOT")
-    testImplementation("org.assertj:assertj-core:3.21.0")
+    testImplementation("net.jqwik:jqwik-kotlin:1.6.5")
+    testImplementation("org.assertj:assertj-core:3.22.0")
 }
 
 tasks.withType<Test> {
@@ -39,5 +39,5 @@ tasks.withType<KotlinCompile> {
 }
 
 tasks.withType<Wrapper> {
-    gradleVersion = "7.2"
+    gradleVersion = "7.4.2"
 }
